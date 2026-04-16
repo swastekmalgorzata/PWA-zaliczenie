@@ -74,7 +74,7 @@ function handleLogout() {
 const navigationCards = [
   { title: 'Profile', description: 'Personal information and program details', icon: User, link: '/profile', color: 'bg-orange-50', iconColor: 'text-orange-600', active: true },
   { title: 'Grades', description: 'View grades and statistics', icon: Award, link: '/grades', color: 'bg-blue-50', iconColor: 'text-primary', active: true },
-  { title: 'Subjects', description: 'View enrolled courses and lecturers', icon: BookOpen, link: '/subjects', color: 'bg-purple-50', iconColor: 'text-purple-600', active: false },
+  { title: 'Subjects', description: 'View enrolled courses and lecturers', icon: BookOpen, link: '/subjects', color: 'bg-purple-50', iconColor: 'text-purple-600', active: true },
   { title: 'Student Service Office', description: 'Connect with university administration', icon: Building2, link: '/student-service', color: 'bg-green-50', iconColor: 'text-green-600', active: false },
   { title: 'Notifications', description: 'Academic announcements and alerts', icon: Bell, link: '/notifications', color: 'bg-red-50', iconColor: 'text-red-600', active: false },
   { title: 'Payments', description: 'Tuition fees and payment history', icon: CreditCard, link: '/payments', color: 'bg-yellow-50', iconColor: 'text-yellow-600', active: false },

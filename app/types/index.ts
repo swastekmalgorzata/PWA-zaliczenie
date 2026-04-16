@@ -37,6 +37,7 @@ export interface Subject {
     schedule: string
     room: string
     description: string
+    semester: string
 }
 
 export interface Payment {
