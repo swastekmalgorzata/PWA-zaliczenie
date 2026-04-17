@@ -24,6 +24,10 @@
           <label for="password" class="text-sm font-medium">Password</label>
           <input id="password" v-model="password" type="password" placeholder="Create a password (min 6 characters)" class="form-input">
         </div>
+        <div class="space-y-2">
+          <label for="phone" class="text-sm font-medium">Phone Number</label>
+          <input id="phone" v-model="phone" type="tel" placeholder="Enter your phone number" class="form-input">
+        </div>
 
         <div class="space-y-2">
           <label class="text-sm font-medium">I am a:</label>
@@ -73,6 +77,7 @@ const router = useRouter()
 const name = ref('')
 const email = ref('')
 const password = ref('')
+const phone = ref('')
 const role = ref<UserRole>('student')
 const error = ref('')
 const success = ref(false)
@@ -90,7 +95,7 @@ function handleSubmit() {
     return
   }
 
-  const registered = auth.register(email.value, password.value, name.value, role.value)
+  const registered = auth.register(email.value, password.value, name.value, role.value, phone.value)
   if (registered) {
     success.value = true
     setTimeout(() => router.push('/login'), 2000)

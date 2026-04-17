@@ -46,7 +46,7 @@ export const useAuthStore = defineStore('auth', {
             this.user = null
         },
 
-        register(email: string, password: string, name: string, role: UserRole): boolean {
+        register(email: string, password: string, name: string, role: UserRole, phone?: string): boolean {
             const allUsers = [...PREDEFINED_USERS, ...this.registeredUsers]
             if (allUsers.some(u => u.email === email)) return false
 
@@ -56,6 +56,7 @@ export const useAuthStore = defineStore('auth', {
                 password,
                 name,
                 role,
+                phone,
             }
             this.registeredUsers.push(newUser)
             return true
@@ -64,6 +65,16 @@ export const useAuthStore = defineStore('auth', {
         updateUser(updates: Partial<User>) {
             if (this.user) {
                 this.user = { ...this.user, ...updates }
+            }
+        },
+
+        changePassword(newPassword: string) {
+            if (this.user) {
+                // In a real app we'd update the backend. Here we update the registeredUsers array if the user is there.
+                const userInDb = this.registeredUsers.find(u => u.id === this.user?.id)
+                if (userInDb) {
+                    userInDb.password = newPassword
+                }
             }
         },
     },
